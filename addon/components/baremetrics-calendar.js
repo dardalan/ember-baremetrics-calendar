@@ -215,8 +215,12 @@ export default Ember.Component.extend({
       }
     };
     if (this.get('type') === 'single') {
+      const latestDate = this.get('latestDate');
+
       config.current_date = this.get('currentDate');
       config.required = this.get('required');
+
+      if (latestDate) { config.latest_date = latestDate; }
       element.addClass('daterange--single');
     } else {
       config.earliest_date = this.get('earliestDate');
